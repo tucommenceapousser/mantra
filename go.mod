@@ -1,3 +1,3 @@
-module github.com/tucommenceapousser/mantra
+module github.com/tucommenceapousser/trknmantra
 
 go 1.21
