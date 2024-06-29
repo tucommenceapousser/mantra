@@ -3,7 +3,7 @@ CC = go
 all:
 	mkdir build
 	export CGO_ENABLED=0
-	GOOS=linux GOARCH=amd64 $(CC) build -o build/mantra-amd64-linux
+	GOOS=linux GOARCH=amd64 $(CC) build -o mantra
 	GOOS=linux GOARCH=386 $(CC) build -o build/mantra-i386-linux
 	GOOS=linux GOARCH=arm64 $(CC) build -o build/mantra-arm64-linux
         GOOS=linux GOARCH=arm GOARM=5 $(CC) build -o build/mantra-armv5-linux
