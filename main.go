@@ -12,7 +12,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
-	"time"
+	"trknmantra/banner"
+
 )
 
 var (
@@ -95,22 +96,6 @@ func init() {
 	urlInput = flag.String("u", "", "single URL to scan")
 }
 
-func banner() {
-	banner := `
-	███╗   ███╗ █████╗ ███╗   ██╗████████╗██████╗  █████╗ 
-	████╗ ████║██╔══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔══██╗
-	██╔████╔██║███████║██╔██╗ ██║   ██║   ██████╔╝███████║
-	██║╚██╔╝██║██╔══██║██║╚██╗██║   ██║   ██╔══██╗██╔══██║
-	██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║
-	╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
-	`
-	for _, char := range banner {
-		fmt.Printf("\033[31m%c\033[0m", char)
-		time.Sleep(5 * time.Millisecond)
-	}
-	fmt.Printf("\033[31m[\033[37mCoded by TRHACKNON\033[31m]\n")
-	fmt.Printf("\033[31m[\033[37mVersion 2.1\033[31m]\n")
-}
 
 func readURLsFromFile(filePath string) []string {
 	file, err := os.Open(filePath)
@@ -136,7 +121,7 @@ func main() {
 	flag.Parse()
 
 	if !*silent {
-		banner()
+		banner.Banner()
 	}
 
 	var urls []string
